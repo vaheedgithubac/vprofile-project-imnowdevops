@@ -15,7 +15,7 @@ pipeline {
             }
            }
         }
-        stage('Run docker-compose.yml) {
+        stage('Run docker-compose.yml') {
               steps{
                   sh 'docker-compose up -d'
               }
