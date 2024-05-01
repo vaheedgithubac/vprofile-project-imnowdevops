@@ -10,10 +10,15 @@ pipeline {
                     sshagent(['jenkins-agent']) {
                      sh """
                          scp -o StrictHostKeyChecking=no docker-compose.yml jenkins-agent@172.31.24.126:/home/jenkins-agent/
-                         ssh jenkins-agent@172.31.24.126:/home/jenkins-agent/docker-compose up -d
+                         
                         """
             }
            }
+        }
+        stage('Run docker-compose.yml) {
+              steps{
+                  sh 'docker-compose up -d'
+              }
         }
     }
 }
